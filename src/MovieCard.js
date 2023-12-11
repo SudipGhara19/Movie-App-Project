@@ -1,7 +1,19 @@
 import { Component } from "react";
 
 class MovieCard extends Component{
+
+    constructor(){            
+        super();
+        this.state = {
+            title: "The Avangers",          //craeting this.state
+            plot: "Supernatural powers shown in the movie.",
+            price: 199,
+            rating: 8.9,
+        }
+    }
+
     render(){
+        const {title, plot, price, rating} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -9,12 +21,12 @@ class MovieCard extends Component{
                         <img src="https://www.themoviedb.org/t/p/original/qMxAmzGQO722q0UlssCOPhrXmvX.jpg" alt="poster"/>
                     </div>
                     <div className="right">
-                        <div className="title">The Avangers</div>
-                        <div className="plot">Supernatural powers shown in the movie</div>
-                        <div className="price">Rs. 199</div>
+                        <div className="title">{title}</div>
+                        <div className="plot">{plot}</div>
+                        <div className="price">{price}</div>
 
                         <div className="footer">
-                            <div className="rating">8.9</div>
+                            <div className="rating">{rating}</div>
                             <div className="star-dis">
 
                                 <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/11942/11942825.png" alt="decrease"/>
