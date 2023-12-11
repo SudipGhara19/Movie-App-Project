@@ -12,6 +12,10 @@ class MovieCard extends Component{
         }
     }
 
+    addStars = () => {                        // we don't have to bind this because it's a arrow function
+        console.log("this: ", this)
+    }
+
     render(){
         const {title, plot, price, rating} = this.state;
         return(
@@ -34,7 +38,7 @@ class MovieCard extends Component{
                                 <img src="https://t3.ftcdn.net/jpg/01/09/84/42/240_F_109844239_A7MdQSDf4y1H80cfvHZuSa0zKBkZ68S7.jpg" 
                                 alt="star" className="stars"/>
 
-                                <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/3161/3161837.png" alt="increase"/>
+                                <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/3161/3161837.png" alt="increase" onClick={this.addStars}/>
 
                                 <span>0</span>
 
