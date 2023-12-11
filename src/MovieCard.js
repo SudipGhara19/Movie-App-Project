@@ -2,22 +2,53 @@ import { Component } from "react";
 
 class MovieCard extends Component{
 
+    //craeting this.state
     constructor(){            
         super();
         this.state = {
-            title: "The Avangers",          //craeting this.state
+            title: "The Avangers",          
             plot: "Supernatural powers shown in the movie.",
             price: 199,
             rating: 8.9,
+            stars: 0,
         }
     }
 
-    addStars = () => {                        // we don't have to bind this because it's a arrow function
-        console.log("this: ", this)
+    // we don't have to bind this because it's a arrow function
+    addStars = () => {                        
+        //using setState 1sr form
+
+        // this.setState({
+        //     stars: this.state.stars + 0.5
+        // })
+
+
+        //using setState 2nd form
+
+        this.setState((prevState) => {
+            return{
+                stars: prevState.stars + 0.5,
+            }
+        })
+    }
+
+    decreaseStars = () => {
+        //using setState 1st form
+
+        // this.setState({
+        //     stars : this.state.stars - 0.5,
+        // })
+
+        //using setState 2nd form
+        this.setState((prevState) => {
+            return{
+                stars: prevState.stars - 0.5,
+            }
+        })
     }
 
     render(){
-        const {title, plot, price, rating} = this.state;
+        const {title, plot, price, rating, stars} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -33,14 +64,14 @@ class MovieCard extends Component{
                             <div className="rating">{rating}</div>
                             <div className="star-dis">
 
-                                <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/11942/11942825.png" alt="decrease"/>
+                                <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/11942/11942825.png" alt="decrease" onClick={this.decreaseStars}/>
 
                                 <img src="https://t3.ftcdn.net/jpg/01/09/84/42/240_F_109844239_A7MdQSDf4y1H80cfvHZuSa0zKBkZ68S7.jpg" 
                                 alt="star" className="stars"/>
 
                                 <img className="str-btn" src="https://cdn-icons-png.flaticon.com/128/3161/3161837.png" alt="increase" onClick={this.addStars}/>
 
-                                <span>0</span>
+                                <span>{stars}</span>
 
                             </div>
                             <button className="favourite-btn">Favourite</button>
