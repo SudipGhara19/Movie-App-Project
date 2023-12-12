@@ -15,7 +15,10 @@ class MovieCard extends Component{
     }
 
     // we don't have to bind this because it's a arrow function
-    addStars = () => {                        
+    addStars = () => {         
+        if(this.state.stars >= 5){
+            return;
+        }               
         //using setState 1sr form
 
         // this.setState({
@@ -33,6 +36,9 @@ class MovieCard extends Component{
     }
 
     decreaseStars = () => {
+        if(this.state.stars <= 0){
+            return;
+        }
         //using setState 1st form
 
         // this.setState({
