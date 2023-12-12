@@ -2,19 +2,7 @@ import { Component } from "react";
 
 class MovieCard extends Component{
 
-    //craeting this.state
-    constructor(){            
-        super();
-        this.state = {
-            title: "The Avangers",          
-            plot: "Supernatural powers shown in the movie.",
-            price: 199,
-            rating: 8.9,
-            stars: 0,
-            fav: false,
-            isInCart: false,
-        }
-    }
+    
 
     // we don't have to bind this because it's a arrow function
     addStars = () => {         
@@ -68,7 +56,7 @@ class MovieCard extends Component{
     }
 
     render(){
-        const {title, plot, price, rating, stars, fav, isInCart} = this.state;
+        const {title, plot, price, rating, stars, fav, isInCart} = this.props.movies;
         return(
             <div className="main">
                 <div className="movie-card">
