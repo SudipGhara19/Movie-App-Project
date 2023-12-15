@@ -34,13 +34,14 @@ const CartIconContainer = styled.div`
 `;
 
 const CartCount = styled.div`
-    background: yellow;
+    background: ${(props) => props.color };
     border-radius: 50%;
     padding: 4px 8px;
     position: absolute;
     right: 10px;
     top: -5px;
     font-size: 12px;
+    visibility: ${(props) => props.show? "visible" : "hidden"}
 `;
 
 class Navbar extends React.Component{
@@ -53,7 +54,7 @@ class Navbar extends React.Component{
             src="https://cdn-icons-png.flaticon.com/128/2838/2838694.png"
             alt="cart-icon"
           />
-          <CartCount>3</CartCount>
+          <CartCount color="yellow" show={true}>3</CartCount>
         </CartIconContainer>
       </Nav>
         )
