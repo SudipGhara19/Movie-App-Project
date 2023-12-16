@@ -1,62 +1,24 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
+import styles from "./Navbar.module.css";
 
 
 
-const Nav =  styled.div`
-    height: 70px;
-	background: linear-gradient(170deg, #1bc059, #0d47a1);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-  
-`;
-
-const Title = styled.div`
-    font-size: 30px;
-    color: #fff;
-    font-weight: 600;
-    font-family: 'Times New Roman', Times, serif;
-    text-transform: uppercase;
-    margin-left: 20px ;
-`;
-
-
-const CartImg = styled.img`
-    height: 48px;
-    margin-right: 20px;
-`;
-
-const CartIconContainer = styled.div`
-    position: relative;
-    cursor: pointer;
-`;
-
-const CartCount = styled.div`
-    background: ${(props) => props.color };
-    border-radius: 50%;
-    padding: 4px 8px;
-    position: absolute;
-    right: 10px;
-    top: -5px;
-    font-size: 12px;
-    visibility: ${(props) => props.show? "visible" : "hidden"}
-`;
 
 class Navbar extends React.Component{
     render(){
         return(
-        <Nav>
-            <Title>Movie-App</Title>
-            <CartIconContainer>
-          <CartImg
+        <div className={styles.nav}>
+            <div className={styles.title}>Movie-App</div>
+            <div className={styles.cartContainer}>
+          <img
+            className={styles.cartIcon}
             src="https://cdn-icons-png.flaticon.com/128/2838/2838694.png"
             alt="cart-icon"
           />
-          <CartCount color="yellow" show={true}>3</CartCount>
-        </CartIconContainer>
-      </Nav>
+          <span className={styles.cartCount}>3</span>
+        </div>
+      </div>
         )
     }
 }
